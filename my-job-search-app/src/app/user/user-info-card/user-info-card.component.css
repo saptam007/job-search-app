@@ -1,0 +1,49 @@
+.card-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 16px;
+  padding: 10px;
+}
+
+.custom-card {
+  flex: 1 1 calc(33% - 32px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  min-width: 225px;
+}
+
+.user-image{
+  max-width: 100%;
+}  
+  
+.skill-item{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 800;
+  color:aliceblue;
+  background-color: slateblue;
+  border-radius: 10%;
+  padding: 5px;
+  margin: 3px;
+  cursor: default;
+}
+
+@media (max-width: 1200px) {
+  .custom-card {
+    flex: 1 1 calc(25% - 32px); /* 4 cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .custom-card {
+    flex: 1 1 calc(33.333% - 32px); /* 3 cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-card {
+    flex: 1 1 calc(50% - 32px); /* 2 cards per row on smaller screens */
+  }  
+}  

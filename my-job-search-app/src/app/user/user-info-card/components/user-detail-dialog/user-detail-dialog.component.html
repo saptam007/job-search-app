@@ -1,0 +1,30 @@
+
+<div mat-dialog-title class="title-section">
+    <span>
+        {{user.name}}
+    </span>
+    <a href="#" class="close"></a>
+</div>  
+
+
+<div mat-dialog-content class="user-detail-section">
+<div class="left-section">
+    <img class="image-section" [src]="user.imageUrl" alt="{{user.name}}">
+    <div class="desc-section"> {{user.description}}</div>
+</div>
+<div class="right-section">
+<div class="search-section">
+    <div>
+        <input formControlName="searchQuery" placeholder="Search ...">
+        <select formControlName="category">
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+      </div>
+</div>
+</div>
+</div>
+
+<div mat-dialog-actions class="action-section">
+  <button mat-button mat-dialog-close (click)="onCloseDialog()">Cancel</button>
+  <button mat-button>Apply</button>
+</div>
