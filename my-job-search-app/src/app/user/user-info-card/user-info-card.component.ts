@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { UserInfoCardService } from './user-info-card.service';
+import { UserInfoCardService } from './service/user-info-card.service';
 import { User } from './model/user.model';
 import { CommonModule } from '@angular/common';
 import { UserDetailDialogComponent } from './components/user-detail-dialog/user-detail-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-info-card',

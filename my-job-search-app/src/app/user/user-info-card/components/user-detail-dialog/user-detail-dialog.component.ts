@@ -3,9 +3,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { User } from '../../model/user.model';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserDetailDialogDataService } from '../services/user-detail-dialog-data.service';
 import { Skill } from '../../model/skills.model';
-import { UserInfoCardService } from '../../user-info-card.service';
+import { UserInfoCardService } from '../../service/user-info-card.service';
 
 @Component({
   selector: 'app-user-detail-dialog',
