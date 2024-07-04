@@ -2,12 +2,12 @@
 <div class="card-list">    
 <mat-card *ngFor="let user of users" class="custom-card">
     <mat-card-header> <mat-card-subtitle>{{user.name}}</mat-card-subtitle></mat-card-header>
-    <mat-card-content xlass="card-content">
+    <mat-card-content class="card-content">
         <p><img class="user-image" [src]="user.imageUrl" alt="{{user.name}}"></p>
         <button mat-button (click)="openUserDetailDialog(user)">Edit Profile</button>
         <p>Skillsets :  
             <span *ngFor="let skill of user.skills; else noItems">
-                <span class="skill-item">{{skill}}</span>
+                <span class="skill-item">{{skill.name}}</span>
             </span>
         <ng-template #noItems>
             <p>No skills found.</p>

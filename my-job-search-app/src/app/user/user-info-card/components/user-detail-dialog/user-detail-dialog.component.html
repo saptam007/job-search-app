@@ -6,7 +6,6 @@
     <a href="#" class="close"></a>
 </div>  
 
-
 <div mat-dialog-content class="user-detail-section">
 <div class="left-section">
     <img class="image-section" [src]="user.imageUrl" alt="{{user.name}}">
@@ -15,12 +14,24 @@
 <div class="right-section">
 <div class="search-section">
     <div>
-        <input formControlName="searchQuery" placeholder="Search ...">
-        <select formControlName="category">
+        <input [(ngModel)]="searchTerm" (input)="loadSkillItems()" placeholder="Enter skill/rating...">
+        <select [(ngModel)]="searchCategory" (change)="loadSkillItems()">
             <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
         </select>
       </div>
 </div>
+  <div *ngFor="let skill of filteredSkills" class="skill-list-section">
+    <label>{{ skill.name }} </label> <label>{{ skill.rating }}</label> 
+    <button mat-button (click)="editSkill(skill)">Edit</button>
+    <button mat-button (click)="deleteSkill(skill)">Delete</button>
+  </div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input formControlName="name" placeholder="Skill Name">
+    <select formControlName="rating">
+      <option *ngFor="let r of ratings" [value]="r">{{ r }}</option>
+  </select>
+    <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
+  </form>
 </div>
 </div>
 
