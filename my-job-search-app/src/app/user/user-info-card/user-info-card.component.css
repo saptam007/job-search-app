@@ -1,4 +1,14 @@
-.card-list{
+.title {
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  padding: 20px 50px;
+  opacity: 0.6;
+  padding:2px;
+}
+
+.card-list {
   display: flex;
   flex-wrap: wrap;
   align-items: start;
@@ -15,36 +25,44 @@
   min-width: 225px;
 }
 
-.user-image{
+.user-image {
   max-width: 100%;
-}  
-  
-.skill-item{
+}
+
+.skill-item {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 800;
-  color:aliceblue;
+  color: aliceblue;
   background-color: slateblue;
   border-radius: 10%;
-  padding: 5px;
-  margin: 3px;
+  padding: 8px;
+  margin: 8px;
   cursor: default;
   opacity: 0.8;
 }
 
 @media (max-width: 1200px) {
   .custom-card {
-    flex: 1 1 calc(25% - 32px); /* 4 cards per row on smaller screens */
+    flex: 1 1 calc(25% - 32px);
+    /* 4 cards per row on smaller screens */
   }
 }
 
 @media (max-width: 992px) {
   .custom-card {
-    flex: 1 1 calc(33.333% - 32px); /* 3 cards per row on smaller screens */
+    flex: 1 1 calc(33.333% - 32px);
+    /* 3 cards per row on smaller screens */
   }
 }
 
 @media (max-width: 768px) {
   .custom-card {
-    flex: 1 1 calc(50% - 32px); /* 2 cards per row on smaller screens */
-  }  
-}  
+    flex: 1 1 calc(50% - 32px);
+    /* 2 cards per row on smaller screens */
+  }
+}
+
+.skill-section {
+  min-height: 50px;
+  ;
+}

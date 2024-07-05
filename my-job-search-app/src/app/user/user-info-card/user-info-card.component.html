@@ -1,19 +1,15 @@
-<h3>User details<h3>
-<div class="card-list">    
-<mat-card *ngFor="let user of users" class="custom-card">
-    <mat-card-header> <mat-card-subtitle>{{user.name}}</mat-card-subtitle></mat-card-header>
-    <mat-card-content class="card-content">
-        <p><img class="user-image" [src]="user.imageUrl" alt="{{user.name}}"></p>
-        <button mat-button (click)="openUserDetailDialog(user)">Edit Profile</button>
-        <p>Skillsets :  
-            <span *ngFor="let skill of user.skills; else noItems">
-                <span class="skill-item">{{skill.name}}</span>
-            </span>
-        <ng-template #noItems>
-            <p>No skills found.</p>
-        </ng-template>
-    </p>
-    </mat-card-content>
-</mat-card>
-</div>
-
+<div class="title">Please select any of the below applicant profile</div>
+        <div class="card-list">
+            <mat-card *ngFor="let user of users" class="custom-card">
+                <mat-card-header> <mat-card-subtitle>{{user.name}}</mat-card-subtitle></mat-card-header>
+                <mat-card-content class="card-content">
+                    <p><img class="user-image" [src]="user.imageUrl" alt="{{user.name}}"></p>
+                    <div class="skill-section">
+                        <span *ngFor="let skill of user.skills">
+                            <span class="skill-item">{{skill.name}}</span>
+                        </span>
+                    </div>
+                    <button mat-raised-button (click)="openUserDetailDialog(user)">Edit Profile</button>
+                </mat-card-content>
+            </mat-card>
+        </div>

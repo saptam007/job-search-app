@@ -3,8 +3,9 @@
         "id": 1, 
         "name": "Profile-1", 
         "skills": [
-            {"id": 1, "name" : "React", "rating": 5},
-            {"id": 2, "name" : "Node JS", "rating": 3}], 
+            {"id": 1, "name" : "React JS", "rating": 5},
+            {"id": 2, "name" : "JAVA", "rating": 5},
+            {"id": 3, "name" : "Node JS", "rating": 3}], 
         "description":"This profile illustrates skills for a UI developer.", 
         "imageUrl":"https://mighty.tools/mockmind-api/content/human/1.jpg"
     },

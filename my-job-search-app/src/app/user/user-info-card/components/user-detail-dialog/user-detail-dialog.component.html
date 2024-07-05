@@ -1,41 +1,46 @@
-
 <div mat-dialog-title class="title-section">
-    <span>
-        {{user.name}}
-    </span>
-    <a href="#" class="close"></a>
-</div>  
+  <span>
+    {{user.name}}
+  </span>
+  <a href="#" class="close"></a>
+</div>
 
 <div mat-dialog-content class="user-detail-section">
-<div class="left-section">
+  <div class="left-section">
     <img class="image-section" [src]="user.imageUrl" alt="{{user.name}}">
     <div class="desc-section"> {{user.description}}</div>
-</div>
-<div class="right-section">
-<div class="search-section">
-    <div>
+  </div>
+  <div class="right-section">
+    <div class="search-section">
+      <div>
         <input [(ngModel)]="searchTerm" (input)="loadSkillItems()" placeholder="Enter skill/rating...">
         <select [(ngModel)]="searchCategory" (change)="loadSkillItems()">
-            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
         </select>
       </div>
-</div>
-  <div *ngFor="let skill of filteredSkills" class="skill-list-section">
-    <label>{{ skill.name }} </label> <label>{{ skill.rating }}</label> 
-    <button mat-button (click)="editSkill(skill)">Edit</button>
-    <button mat-button (click)="deleteSkill(skill)">Delete</button>
+    </div>
+    <div *ngFor="let skill of filteredSkills" class="skill-list-section">
+      <label>{{ skill.name }} </label>
+      <label>{{ skill.rating }}</label>
+      <button mat-raised-button (click)="editSkill(skill)">Edit</button>
+      <button mat-raised-button (click)="deleteSkill(skill)">Remove</button>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div formArrayName="entries" class="form-section">
+        <div *ngFor="let entry of entries.controls; let i = index" [formGroupName]="i">
+          <input mat-input formControlName="name" placeholder="New skill">
+          <select formControlName="rating">
+            <option *ngFor="let r of ratings" [value]="r">{{ r }}</option>
+          </select>
+          <button mat-raised-button type="button" (click)="addEntry()">Add</button>
+          <button mat-raised-button type="button" (click)="removeEntry(i)">Remove</button>
+        </div>
+      </div>
+      <button mat-raised-button type="submit">{{ isEdit ? 'Update Skill' : 'Add Skill' }}</button>
+    </form>
   </div>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <input formControlName="name" placeholder="Skill Name">
-    <select formControlName="rating">
-      <option *ngFor="let r of ratings" [value]="r">{{ r }}</option>
-  </select>
-    <button type="submit">{{ isEdit ? 'Update' : 'Add' }}</button>
-  </form>
-</div>
 </div>
 
 <div mat-dialog-actions class="action-section">
-  <button mat-button mat-dialog-close (click)="onCloseDialog()">Cancel</button>
-  <button mat-button>Apply</button>
+  <button mat-flat-button mat-dialog-close (click)="onCloseDialog()">Exit</button>
 </div>

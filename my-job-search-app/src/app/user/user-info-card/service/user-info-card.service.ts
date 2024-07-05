@@ -9,25 +9,21 @@ import { Skill } from '../model/skills.model';
 })
 export class UserInfoCardService {
 
-  constructor(private dataService : UserInfoCardDataService) { }
+  constructor(private dataService: UserInfoCardDataService) { }
 
-  public getUsers(): Observable<User[]>{
+  public getUsers(): Observable<User[]> {
     return this.dataService.getUsers();
   }
 
-  public getSkills(id:number) : Observable<Skill[]| undefined>{
+  public getSkills(id: number): Observable<Skill[] | undefined> {
     return this.dataService.getSkills(id);
   }
 
-  addSkill( id: number, newSkill: Skill): Observable<any>{
-    return this.dataService.addSkill(id, newSkill);
+  addOrUpdateSkills(id: number, updatedSkills: Skill[]): Observable<any> {
+    return this.dataService.addOrUpdateSkillsToUsers(id, updatedSkills);
   }
 
-  updateSkill(id: number, skillToBeModified : Skill): Observable<any> {
-    return this.dataService.updateItem(id,skillToBeModified);
-  }
-
-  deleteSkill(id: number, skillToBeDeleted : Skill): Observable<any> {
+  deleteSkill(id: number, skillToBeDeleted: Skill): Observable<any> {
     return this.dataService.deleteSkill(id, skillToBeDeleted);
   }
 }
